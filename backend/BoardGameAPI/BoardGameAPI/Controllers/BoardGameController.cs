@@ -27,9 +27,16 @@ namespace BoardGameAPI.Controllers
         }
 
         // Get All (index)
+        // Allows our user to specify a name that we want to look for within the names of the board games we return
+        // in other words, we will use their input as a filter for our data
         [HttpGet]
-        public ActionResult< IEnumerable<BoardGame> > GetAll()
+        public ActionResult< IEnumerable<BoardGame> > GetAll([FromQuery]string? name) // binding a parameter from the query string
         {
+            if(name != null)
+            {
+                // return filtered list
+                return db.BoardGames.Where(bg => bg.Name.ToUpper().Contains( name.ToUpper() ) ).ToList(); // CATAN -> SETTLERS OF CATAN
+            }
             return db.BoardGames;
         }
 

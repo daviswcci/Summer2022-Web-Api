@@ -8,7 +8,7 @@
         public int MaxPlayers { get; set; }
         public Genre Genre { get; set; }
         public bool IsCoop { get; set; }
-        // maybe a database relationship to gamepieces
+        public virtual List<BoardGamePiece> GamePieces { get; set; }
     }
     public enum Genre
     {
