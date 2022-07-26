@@ -10,7 +10,5 @@ export default {
 function setupMain(){
     console.log("Hello world!");
     // repopulate HTML
-    apiActions.getRequest(constants.boardGameURL, boardGame.displayBoardGameIndex)
-    // add functionality
-    //boardGame.setupBoardGameIndex(); 
+    apiActions.getRequest(constants.boardGameURL, boardGame.displayBoardGameIndex);
 }
