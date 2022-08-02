@@ -56,7 +56,7 @@ namespace BoardGameAPI.Controllers
         
         // Put (update)
         [HttpPut("{id}")]
-        public ActionResult<BoardGame> Put(int id, BoardGame boardGame)
+        public ActionResult<IEnumerable<BoardGame>> Put(int id, BoardGame boardGame)
         {
             if(boardGame.Id == id)
             {
@@ -64,7 +64,7 @@ namespace BoardGameAPI.Controllers
                 db.SaveChanges();
             }
 
-            return boardGame;
+            return db.BoardGames;
         }
 
         // Delete (delete)
